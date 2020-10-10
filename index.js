@@ -36,6 +36,11 @@ class SuvFactory {
     }
 }
 
+let carMixin = {
+    revEngine(){
+        console.log(`The ${this.engine} engine is doing vroom vroom!`);
+    }
+}
 
 const carFactory = new CarFactory();
 const suvFactory = new SuvFactory();
@@ -50,8 +55,12 @@ const autoManufacturer = (type, model) => {
     }
 }
 
+//Object.assign(Car.prototype, carMixin);
+Car.prototype.revEngine = carMixin.revEngine;
+
 const civic = autoManufacturer('car','civic')
 const santaFe = autoManufacturer('suv','santa fe');
 
-console.log(civic);
-console.log(santaFe);
+//console.log(civic);
+//console.log(santaFe);
+civic.revEngine();
