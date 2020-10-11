@@ -4,6 +4,8 @@ class Car {
         this.engine = engine;
         this.color = color;
     }
+    // Decorator
+    revEngine = carMixin.revEngine.bind(this);
 }
 
 class CarFactory {
@@ -56,7 +58,7 @@ const autoManufacturer = (type, model) => {
 }
 
 //Object.assign(Car.prototype, carMixin);
-Car.prototype.revEngine = carMixin.revEngine;
+//Car.prototype.revEngine = carMixin.revEngine;
 
 const civic = autoManufacturer('car','civic')
 const santaFe = autoManufacturer('suv','santa fe');
